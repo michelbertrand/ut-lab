@@ -12,7 +12,7 @@ docker run --name index-server --rm --network fluig-docker-network \
      -p 8983:8983 -d docker.fluig.com/snapshot/fluig/solr:c37ea34;
 
 # Iniciando o servidor de banco de dados MySQL
-docker run --name database-server --network fluig-docker-network –rm \
+docker run --name database-server --network fluig-docker-network --rm \
      -p 3306:3306 \
      -e MYSQL_ROOT_PASSWORD=YuCBDOZnqE5vL \
      -e MYSQL_USER=fluig \
