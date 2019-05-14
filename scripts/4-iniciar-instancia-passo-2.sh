@@ -1,4 +1,5 @@
 #!/bin/bash
+fluigURL=https://utlab0.fluig.io:8080
 # Iniciando o servidor do fluig
 echo 'Iniciando o servidor do fluig ...';
 docker run --name fluig-server --rm --network fluig-docker-network \
@@ -16,7 +17,7 @@ docker run --name fluig-server --rm --network fluig-docker-network \
 	 -e lsPort=5555
 	 -e fluigHost=fluig-server \
 	 -e fluigPort=8080 \
-	 -e fluigUrl=http://code<numero>.fluig.io:8080 \
+	 -e fluigUrl=$fluigURL \
 	 -e fluigXms=2g \
 	 -e fluigXmx=3g \
 	 -e smtpHost=fluig-server \
