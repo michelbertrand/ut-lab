@@ -1,6 +1,5 @@
 #!/bin/bash
 # Criando uma rede virtual no Docker
-
 if [ (docker network ls | grep fluig-docker-network | awk '{ print $2 }') = fluig-docker-network ]; then
   echo 'A rede do docker está disponível: fluig-docker-network';
 else
