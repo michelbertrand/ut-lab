@@ -1,5 +1,5 @@
 #!/bin/bash
-fluigURL=http://fluig0.utlabs.io:8080
+fluigURL=https://utlab.fluig.io
 # Iniciando o servidor do fluig
 echo 'Iniciando o servidor do fluig ...';
 docker run --name fluig-server --rm --network fluig-docker-network \
