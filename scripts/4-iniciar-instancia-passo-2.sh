@@ -2,7 +2,7 @@
 fluigURL=https://utlab.fluig.io
 # Iniciando o servidor do fluig
 echo 'Iniciando o servidor do fluig ...';
-docker run --name fluig-server --rm --network fluig-docker-network \
+docker run --name fluig-server --network fluig-docker-network \
    -p 8080:8080 -v /opt/volume:/opt/volume \
    -e dbType=mysql \
    -e dbServer=database-server \
