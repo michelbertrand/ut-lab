@@ -12,8 +12,8 @@ docker run --name fluig-server --network fluig-docker-network \
    -e solrUrl=http://index-server:8983/solr \
    -e solrIsRemote=true \
    -e solrIsCloud=false \
-   -e lsHost=localhost \
-   -e lsPort=5555 \
+   -e lsHost=$lsHost \
+   -e lsPort=$lsPort \
    -e fluigHost=fluig-server \
    -e fluigPort=8080 \
    -e fluigUrl=$fluigURL \
