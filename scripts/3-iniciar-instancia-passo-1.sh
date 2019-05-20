@@ -1,6 +1,4 @@
 #!/bin/bash
-# Alterando usuario corrente para administrador
-sudo su;
 # Criando uma rede virtual no Docker
 dockerNetwork=$(docker network ls | grep fluig-docker-network | awk '{ print $2 }');
 if [ $dockerNetwork = "fluig-docker-network" ]; then

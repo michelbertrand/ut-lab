@@ -1,6 +1,4 @@
 #!/bin/bash
-# Alterando usuario corrente para administrador
-sudo su;
 # Iniciando o servidor do fluig
 echo 'Iniciando o servidor do fluig ...';
 docker run --name fluig-server --network fluig-docker-network \
