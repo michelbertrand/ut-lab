@@ -14,6 +14,8 @@ services:
          - fluig-docker-network
    fluig-server:
       image: docker.fluig.com/${repository}/fluig:${version}
+      depends_on:
+        - "database-server"
       environment:
          # database configuration
          - dbType=${dbType}
