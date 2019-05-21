@@ -1,7 +1,18 @@
 ---
 version: "3"
 services:
-   fluig-application:
+   database-server:
+      image: docker.fluig.com/fluig/mysql
+      environment:
+         - MYSQL_ROOT_PASSWORD=YuCBDOZnqE5vL
+         - MYSQL_USER=fluig
+         - MYSQL_PASSWORD=OLyVu1gIwWmEr
+         - MYSQL_DATABASE=fluig
+      ports:
+         - dbPort=${dbPort}
+      networks:
+         - fluig-docker-network
+   fluig-server:
       image: docker.fluig.com/${repository}/fluig:${version}
       environment:
          # database configuration
@@ -45,13 +56,13 @@ services:
          - ${volume}:/opt/volume
          - ${appsdir}:/opt/fluig/appserver/apps
       command: ["/docker-entrypoint.sh","/opt/fluig/appserver/bin/domain.sh"]
-   solr-application:
+   index-server:
       image: docker.fluig.com/${repository}/solr:${version}
       volumes:
          - solr:/opt/solr/data
       networks:
          - fluig-docker-network
-   node-application:
+   realtime-server:
       image: docker.fluig.com/${repository}/node:${version}
       networks:
          - fluig-docker-network
