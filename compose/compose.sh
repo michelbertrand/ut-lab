@@ -1,13 +1,10 @@
 #!/bin/bash
-export COMMAND ?= "none"
-
 function exportarVariaveis() {
   # Exporta as variaveis de ambiente
   export $(cat ./env.conf);
 }
 
-function lerParametros() {}
-  COMMAND=$1
+function lerParametros() {
   case $COMMAND in
       "start")
       iniciarContainers
@@ -42,5 +39,6 @@ function iniciarContainers() {
   echo " Pronto!"
 }
 
+export COMMAND=$1
 exportarVariaveis
 lerParametros
