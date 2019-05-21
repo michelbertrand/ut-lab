@@ -33,7 +33,7 @@ services:
          - ${ftpPrivFolderPort}:${ftpPrivFolderPort}
          - ${ftpPassivePortMin}-${ftpPassivePortMax}:${ftpPassivePortMin}-${ftpPassivePortMax}
       networks:
-         - fluig
+         - fluig-docker-network
       ulimits:
          memlock:
             soft: -1
@@ -51,14 +51,14 @@ services:
       volumes:
          - solr:/opt/solr/data
       networks:
-         - fluig
+         - fluig-docker-network
    node-application:
       image: docker.fluig.com/${repository}/node:${version}
       networks:
-         - fluig
+         - fluig-docker-network
       ports:
          - ${nodeChatPort}:${nodeChatPort}
 networks:
-   fluig:
+   fluig-docker-network:
 volumes:
    solr:
