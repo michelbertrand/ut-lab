@@ -1,0 +1,64 @@
+---
+version: "3"
+services:
+   fluig-application:
+      image: docker.fluig.com/${repository}/fluig:${version}
+      environment:
+         # database configuration
+         - dbType=${dbType}
+         - dbServer=${dbServer}
+         - dbPort=${dbPort}
+         - dbUser=${dbUser}
+         - dbPassword=${dbPassword}
+         - dbName=${dbName}
+         # index configuration
+         - solrUrl=http://solr-application:8983/solr
+         - solrIsRemote=true
+         - solrIsCloud=false
+         # license server configuration
+         - lsHost=${lsHost}
+         - lsPort=${lsPort}
+         # fluig configuration
+         - fluigHost=${fluigHost}
+         - fluigPort=${fluigPort}
+         - fluigUrl=${fluigUrl}
+         - fluigXms=2g
+         - fluigXmx=3g
+         # node
+         - nodeRealtimeAddress=node-application:8888
+      ports:
+         - ${fluigPort}:${fluigPort}
+         - ${debugPort}:${debugPort}
+         - ${ftpPort}:${ftpPort}
+         - ${ftpPrivFolderPort}:${ftpPrivFolderPort}
+         - ${ftpPassivePortMin}-${ftpPassivePortMax}:${ftpPassivePortMin}-${ftpPassivePortMax}
+      networks:
+         - fluig
+      ulimits:
+         memlock:
+            soft: -1
+            hard: -1
+         nofile:
+            soft: 65536
+            hard: 65536
+      volumes:
+         - ${volume}:/opt/volume
+         - ${appsdir}:/opt/fluig/appserver/apps
+         - ${logsdir}:/opt/fluig/appserver/domain/servers/fluig1/log
+      command: ["/docker-entrypoint.sh","/opt/fluig/appserver/bin/domain.sh"]
+   solr-application:
+      image: docker.fluig.com/${repository}/solr:${version}
+      volumes:
+         - solr:/opt/solr/data
+      networks:
+         - fluig
+   node-application:
+      image: docker.fluig.com/${repository}/node:${version}
+      networks:
+         - fluig
+      ports:
+         - ${nodeChatPort}:${nodeChatPort}
+networks:
+   fluig:
+volumes:
+   solr:
