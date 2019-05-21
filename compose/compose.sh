@@ -23,13 +23,6 @@ function terminarContainers() {
   echo " Terminando o fluig com o docker-compose ..."
   docker-compose down
   echo " Pronto!"
-  # Remove as imagens de todos os containers antigos
-  #echo " Removendo imagens antigas..."
-  #images=`docker images -qa`
-  #if [ -n "$images" ]; then
-  #  docker images --format "{{.ID}}:{{.Tag}}" | grep -v ${version} | cut -d: -f 1 | xargs docker rmi
-  #fi
-  #echo " Done!"
 }
 
 function iniciarContainers() {
