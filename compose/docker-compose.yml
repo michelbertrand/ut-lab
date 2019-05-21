@@ -44,7 +44,6 @@ services:
       volumes:
          - ${volume}:/opt/volume
          - ${appsdir}:/opt/fluig/appserver/apps
-         - ${logsdir}:/opt/fluig/appserver/domain/servers/fluig1/log
       command: ["/docker-entrypoint.sh","/opt/fluig/appserver/bin/domain.sh"]
    solr-application:
       image: docker.fluig.com/${repository}/solr:${version}
