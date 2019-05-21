@@ -9,7 +9,7 @@ services:
          - MYSQL_PASSWORD=OLyVu1gIwWmEr
          - MYSQL_DATABASE=fluig
       ports:
-         - ${dbPort}=${dbPort}
+         - ${dbPort}:${dbPort}
       networks:
          - fluig-docker-network
    fluig-server:
