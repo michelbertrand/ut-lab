@@ -16,7 +16,7 @@ docker run --name fluig-server --network fluig-docker-network \
    -e lsPort=80 \
    -e fluigHost=fluig-server \
    -e fluigPort=8080 \
-   -e fluigUrl=$fluigURL \
+   -e fluigUrl=http://utlab.fluig.io:8080 \
    -e fluigXms=2g \
    -e fluigXmx=3g \
    -e smtpHost=fluig-server \
