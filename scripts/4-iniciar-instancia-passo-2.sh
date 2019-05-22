@@ -13,7 +13,7 @@ docker run --name fluig-server --network fluig-docker-network \
    -e solrIsRemote=true \
    -e solrIsCloud=false \
    -e lsHost=ls.fluig.io \
-   -e lsPort=80 \
+   -e lsPort=5555 \
    -e fluigHost=fluig-server \
    -e fluigPort=8080 \
    -e fluigUrl=http://utlab.fluig.io:8080 \
