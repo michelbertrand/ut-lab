@@ -4,7 +4,7 @@ dockerNetwork=$(docker network ls | grep fluig-docker-network | awk '{ print $2 
 if [ $dockerNetwork = "fluig-docker-network" ]; then
   echo 'A rede do docker está disponível: fluig-docker-network.';
 else
-  docker network create fluig-docker-network;
+  docker network create -d bridge fluig-docker-network;
   echo 'A rede do docker foi criada com sucesso.';
 fi
 # Iniciando o servidor do Realtime
