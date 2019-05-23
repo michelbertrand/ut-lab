@@ -2,7 +2,7 @@
 # Criando uma rede virtual no Docker
 dockerNetwork=$(docker network ls | grep fluig-docker-network | awk '{ print $2 }');
 if ([ -z $dockerNetwork ]); then
-  docker network create -d bridge fluig-docker-network;
+  docker network create -d bridge --subnet 172.18.0.0/16 fluig-docker-network;
   echo 'A rede do docker foi criada com sucesso.';
 else
   echo 'A rede do docker está disponível: fluig-docker-network.';
