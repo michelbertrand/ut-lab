@@ -1,7 +1,7 @@
 #!/bin/bash
 # Iniciando o servidor do fluig
 echo 'Iniciando o servidor do fluig ...';
-docker run --name fluig-server --network host \
+docker run --name fluig-server --network bridge \
    -v /opt/volume:/opt/volume \
    -e dbType=mysql \
    -e dbServer=localhost \
