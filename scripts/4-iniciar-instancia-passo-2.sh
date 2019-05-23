@@ -1,7 +1,7 @@
 #!/bin/bash
 # Iniciando o servidor do fluig
 echo 'Iniciando o servidor do fluig ...';
-docker run --name fluig-server --network fluig-docker-network \
+docker run --name fluig-server --network fluig-docker-network --ip 172.18.0.22 \
    -p 80:80 -p 8080:8080 -p 5555:5555 -v /opt/volume:/opt/volume \
    -e dbType=mysql \
    -e dbServer=database-server \
@@ -23,4 +23,4 @@ docker run --name fluig-server --network fluig-docker-network \
    -e smtpPort=25 \
    -e nodeChatAddress=realtime-server:7777 \
    -e nodeRealtimeAddress=realtime-server:8888 \
-   -d docker.fluig.com/snapshot/fluig/fluig:c37ea34 '-b=0.0.0.0';
+   -d docker.fluig.com/snapshot/fluig/fluig:c37ea34 '-b=172.18.0.22';
