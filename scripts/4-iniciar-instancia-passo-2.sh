@@ -23,4 +23,4 @@ docker run --name fluig-server --network fluig-docker-network \
    -e smtpPort=25 \
    -e nodeChatAddress=realtime-server:7777 \
    -e nodeRealtimeAddress=realtime-server:8888 \
-   -d docker.fluig.com/snapshot/fluig/fluig:c37ea34;
+   -d docker.fluig.com/snapshot/fluig/fluig:c37ea34 '-b 0.0.0.0';
