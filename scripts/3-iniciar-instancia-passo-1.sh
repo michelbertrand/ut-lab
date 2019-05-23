@@ -1,11 +1,11 @@
 #!/bin/bash
 # Criando uma rede virtual no Docker
 dockerNetwork=$(docker network ls | grep fluig-docker-network | awk '{ print $2 }');
-if [ $dockerNetwork = "fluig-docker-network" ]; then
-  echo 'A rede do docker está disponível: fluig-docker-network.';
-else
+if ([ -z $dockerNetwork ]); then
   docker network create -d bridge fluig-docker-network;
   echo 'A rede do docker foi criada com sucesso.';
+else
+  echo 'A rede do docker está disponível: fluig-docker-network.';
 fi
 # Iniciando o servidor do Realtime
 echo 'Iniciando o servidor Realtime ...';
