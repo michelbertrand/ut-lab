@@ -1,8 +1,8 @@
 #!/bin/bash
 # Iniciando o servidor do fluig
 echo 'Iniciando o servidor do fluig ...';
-docker run --name fluig-server \
-   -p 80:80 -p 8080:8080 -p 5555:5555 -v /opt/volume:/opt/volume \
+docker run --name fluig-server --network host \
+   -v /opt/volume:/opt/volume \
    -e dbType=mysql \
    -e dbServer=localhost \
    -e dbPort=3306 \

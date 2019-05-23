@@ -1,17 +1,15 @@
 #!/bin/bash
 # Iniciando o servidor do Realtime
 echo 'Iniciando o servidor Realtime ...';
-docker run --name realtime-server \
-     -p 7777:7777 -p 8888:8888 \
+docker run --name realtime-server --network host \
      -d docker.fluig.com/snapshot/fluig/node:c37ea34;
 # Iniciando o servidor de indexação e busca
 echo 'Iniciando o servidor de busca e indexação ...';
-docker run --name index-server \
-     -p 8983:8983 -d docker.fluig.com/snapshot/fluig/solr:c37ea34;
+docker run --name index-server --network host \
+     -d docker.fluig.com/snapshot/fluig/solr:c37ea34;
 # Iniciando o servidor de banco de dados MySQL
 echo 'Iniciando o servidor de banco de dados ...';
-docker run --name database-server \
-     -p 3306:3306 \
+docker run --name database-server --network host \
      -e MYSQL_ROOT_PASSWORD=YuCBDOZnqE5vL \
      -e MYSQL_USER=fluig \
      -e MYSQL_PASSWORD=OLyVu1gIwWmEr \
