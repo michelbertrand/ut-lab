@@ -41,7 +41,6 @@ services:
          - nodeRealtimeAddress=node-application:8888
       ports:
          - ${fluigPort}:${fluigPort}
-         - 80:80
          - ${lsPort}:${lsPort}
          - ${debugPort}:${debugPort}
          - ${ftpPort}:${ftpPort}
