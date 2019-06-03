@@ -11,11 +11,11 @@ fi
 echo 'Iniciando o servidor Realtime ...';
 docker run --name realtime-server --network fluig-docker-network --ip 172.18.0.23 \
      -p 7777:7777 -p 8888:8888 \
-     -d docker.fluig.com/snapshot/fluig/node:c37ea34;
+     -d docker.fluig.com/fluig/fluig/node:1.6.5-190514;
 # Iniciando o servidor de indexação e busca
 echo 'Iniciando o servidor de busca e indexação ...';
 docker run --name index-server --network fluig-docker-network --ip 172.18.0.24 \
-     -p 8983:8983 -d docker.fluig.com/snapshot/fluig/solr:c37ea34;
+     -p 8983:8983 -d docker.fluig.com/fluig/fluig/solr:1.6.5-190514;
 # Iniciando o servidor de banco de dados MySQL
 echo 'Iniciando o servidor de banco de dados ...';
 docker run --name database-server --network fluig-docker-network --ip 172.18.0.25 \
