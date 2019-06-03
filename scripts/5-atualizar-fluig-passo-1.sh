@@ -18,10 +18,11 @@ docker run --name index-server --network fluig-docker-network --ip 172.18.0.24 \
      -p 8983:8983 -d docker.fluig.com/fluig/fluig/solr:1.6.5-190528;
 # Iniciando o servidor de banco de dados MySQL
 echo 'Iniciando o servidor de banco de dados ...';
-docker run --name database-server --network fluig-docker-network --ip 172.18.0.25 \
-     -p 3306:3306 \
-     -e MYSQL_ROOT_PASSWORD=YuCBDOZnqE5vL \
-     -e MYSQL_USER=fluig \
-     -e MYSQL_PASSWORD=OLyVu1gIwWmEr \
-     -e MYSQL_DATABASE=fluig \
-     -d docker.fluig.com/fluig/mysql;
+#docker run --name database-server --network fluig-docker-network --ip 172.18.0.25 \
+#     -p 3306:3306 \
+#     -e MYSQL_ROOT_PASSWORD=YuCBDOZnqE5vL \
+#     -e MYSQL_USER=fluig \
+#     -e MYSQL_PASSWORD=OLyVu1gIwWmEr \
+#     -e MYSQL_DATABASE=fluig \
+#     -d docker.fluig.com/fluig/mysql;
+docker start database-server;
