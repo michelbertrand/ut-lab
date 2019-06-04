@@ -18,7 +18,7 @@ docker run --name fluig-server --network fluig-docker-network --ip 172.18.0.22 \
    -e fluigPort=8080 \
    -e fluigUrl=http://utlab.fluig.io:8080 \
    -e fluigXms=2g \
-   -e fluigXmx=3g \
+   -e fluigXmx=6g \
    -e smtpHost=fluig-server \
    -e smtpPort=25 \
    -e nodeChatAddress=realtime-server:7777 \
