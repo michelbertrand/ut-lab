@@ -36,7 +36,7 @@ services:
          - fluigPort=${fluigPort}
          - fluigUrl=${fluigUrl}
          - fluigXms=2g
-         - fluigXmx=3g
+         - fluigXmx=6g
          # node
          - nodeRealtimeAddress=node-application:8888
       ports:
